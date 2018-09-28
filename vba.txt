@@ -1,0 +1,27 @@
+Sub test()
+    'Sheet i
+    Range("A1:H7").Clear
+    Range("A1:H7").Borders.LineStyle = xlContinuous
+    For y = 2 To 8
+    
+        For x = 2 To 7
+    
+            For Each i In Sheets
+                Cells(x, y) = Cells(x, y) & i.Cells(x, y) '将每个学生表的信息合并到这张表
+            Next i
+        Next x
+    Next y
+    'Range("B2:H7").Cells.AutoFit
+    Range("B2:H7").Cells.RowHeight = 100
+    Range("B2:f7").Cells.Interior.Color = RGB(255, 231, 186)
+    Cells(1, 1) = "星期/节次"
+    Cells(1, 1).Interior.Color = RGB(255, 225, 0)
+    For i = 2 To 8
+        Cells(1, i) = "星期" + Str(i - 1)
+    Next i
+    Range("B1:H1").Cells.Interior.Color = RGB(127, 255, 0)
+    For Z = 2 To 7
+        Cells(Z, 1) = "第" + Str(Z - 1) + "节"
+    Next Z
+    Range("a2:a7").Cells.Interior.Color = RGB(205, 92, 92)
+End Sub
